@@ -1,0 +1,414 @@
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f4f6fa;
+  color: #172033;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  background: #f4f6fa;
+  color: #172033;
+}
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 245px;
+  padding: 30px 20px;
+  overflow-y: auto;
+  background: #111c2e;
+  color: #fff;
+  z-index: 10;
+}
+
+.sidebar h2 {
+  margin: 0 0 42px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.sidebar-label {
+  margin: 0 0 20px;
+  color: #9aaac2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.nav-item {
+  display: block;
+  margin: 5px 0;
+  padding: 13px 14px;
+  border-radius: 8px;
+  color: #c0ccdd;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background: #1d2d45;
+  color: #fff;
+}
+
+.nav-item.active {
+  background: #293e5b;
+  color: #fff;
+  font-weight: 600;
+}
+
+.main-content {
+  min-height: 100vh;
+  margin-left: 245px;
+  padding: 36px;
+  width: calc(100% - 245px);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.eyebrow {
+  margin: 0 0 9px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.topbar h1 {
+  margin: 0;
+  color: #172033;
+  font-size: clamp(25px, 2.5vw, 34px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+
+.period {
+  flex-shrink: 0;
+  padding: 12px 15px;
+  border: 1px solid #e0e6ef;
+  border-radius: 8px;
+  background: #fff;
+  color: #344258;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.intro {
+  margin-bottom: 26px;
+}
+
+.intro h2 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: 20px;
+}
+
+.intro p {
+  max-width: 850px;
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.metric-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(23, 32, 51, 0.025);
+}
+
+.metric-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.metric-card h2 {
+  margin: 20px 0 10px;
+  color: #172033;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.metric-card span {
+  color: #8490a2;
+  font-size: 12px;
+}
+
+.data-panel {
+  margin-top: 25px;
+  padding: 26px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(23, 32, 51, 0.025);
+}
+
+.data-panel h2 {
+  margin: 0 0 10px;
+  color: #172033;
+  font-size: 19px;
+}
+
+.data-panel p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.panel-heading h2 {
+  margin-bottom: 8px;
+}
+
+.panel-heading p {
+  font-size: 13px;
+}
+
+.chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #475569;
+  font-size: 13px;
+}
+
+.chart-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.chart-legend i {
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  border-radius: 3px;
+}
+
+.legend-actual {
+  background: #0d9488;
+}
+
+.legend-forecast {
+  background: #6478e8;
+}
+
+.chart-container {
+  width: 100%;
+  height: 340px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.generation-chart {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.chart-grid-line {
+  stroke: #e8edf4;
+  stroke-width: 1;
+}
+
+.chart-axis-label {
+  fill: #8490a2;
+  font-size: 12px;
+}
+
+.actual-line,
+.forecast-line {
+  fill: none;
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.actual-line {
+  stroke: #0d9488;
+}
+
+.forecast-line {
+  stroke: #6478e8;
+  stroke-dasharray: 5 4;
+}
+
+.chart-dates {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 0 35px;
+  color: #8490a2;
+  font-size: 12px;
+}
+
+.methodology-note {
+  margin-top: 22px !important;
+  padding-top: 16px;
+  border-top: 1px solid #edf0f5;
+  font-size: 12px !important;
+}
+
+.coverage-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 30px;
+  margin-top: 15px;
+}
+
+.coverage-stats p {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.coverage-stats strong {
+  color: #172033;
+}
+
+.status-message {
+  margin: 24px 0;
+  color: #64748b;
+}
+
+.error-message {
+  margin: 24px 0;
+  padding: 18px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  background: #fff7f7;
+  color: #b91c1c;
+}
+
+.error-message button {
+  display: block;
+  margin-top: 12px;
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 7px;
+  background: #172033;
+  color: #fff;
+  cursor: pointer;
+}
+
+footer {
+  padding: 25px 0 10px;
+  color: #8490a2;
+  font-size: 12px;
+}
+
+@media (max-width: 1100px) {
+  .main-content {
+    padding: 28px;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+
+  .sidebar-label {
+    margin-bottom: 10px;
+  }
+
+  .nav-item {
+    display: inline-block;
+    margin: 3px;
+    padding: 10px;
+  }
+
+  .main-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 20px 16px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 25px;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .data-panel {
+    padding: 18px;
+  }
+
+  .chart-container {
+    height: 260px;
+  }
+
+  .panel-heading {
+    flex-direction: column;
+  }
+
+  .chart-legend {
+    flex-wrap: wrap;
+  }
+
+  .coverage-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
