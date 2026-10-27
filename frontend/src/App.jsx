@@ -2,8 +2,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const API_URL =
-  import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_URL = 'https://wind-analytics-7x2k.onrender.com';
 
 function formatNumber(value) {
   if (value == null || !Number.isFinite(Number(value))) return '—'
