@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const API_URL = 'https://wind-analytics-7x2k.onrender.com';
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  'https://wind-analytics-7x2k.onrender.com';
 
 function formatNumber(value) {
   if (value == null || !Number.isFinite(Number(value))) return '—'
@@ -234,7 +236,7 @@ function App() {
           {renderChart()}
 
           <p className="methodology-note">
-            Forecast cutoff assumption: 09:30 UTC on the day before
+            Forecast cutoff assumption: 10:30 UTC on the day before
             delivery. Actual generation is aggregated from half-hourly
             intervals to hourly averages for comparison with forecast data.
           </p>
@@ -287,7 +289,7 @@ function App() {
 
           <article className="metric-card">
             <p>Forecast Publication Cutoff</p>
-            <h2>09:30 UTC</h2>
+            <h2>10:30 UTC</h2>
             <span>Day before delivery · Assumption</span>
           </article>
         </section>
