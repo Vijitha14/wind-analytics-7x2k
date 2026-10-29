@@ -103,7 +103,7 @@ def wind_analysis():
                     decision_date,
                     datetime.min.time(),
                     tzinfo=UTC,
-                ) + timedelta(hours=9, minutes=30)
+                ) + timedelta(hours=10, minutes=30)
 
                 records = get_json(
                     client,
@@ -195,15 +195,17 @@ def wind_analysis():
                     "timezone": "UTC",
                 },
                 "methodology": {
-                    "decisionTime": "09:30 UTC on the day before delivery",
+                    "decisionTime": "10:30 UTC on the day before delivery",
                     "actualAggregation": (
                         "Arithmetic mean of each pair of half-hourly actuals "
                         "to align with hourly forecast timestamps."
                     ),
                     "note": (
-                        "Provisional assumption. Confirm the cutoff and "
-                        "generation units before final submission."
-                    ),
+                        "Decision cutoff is an analysis assumption. For each delivery day, "
+                        "the latest forecast published at or before 10:30 UTC on the "
+                        "previous day is selected. Actuals are hourly means of complete "
+                        "half-hourly readings."
+                   ),
                 },
                 "metrics": {
                     "actualIntervals": len(actuals),
