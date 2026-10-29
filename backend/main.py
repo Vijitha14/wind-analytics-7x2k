@@ -11,13 +11,18 @@ app = FastAPI(
     version="1.0.0",
 )
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://wind-analytics-7x2k-1.onrender.com",
+    ],
     allow_credentials=False,
     allow_methods=["GET"],
     allow_headers=["*"],
 )
+
 
 BASE_URL = "https://data.elexon.co.uk/bmrs/api/v1"
 UTC = timezone.utc
